@@ -1,2 +1,6 @@
-# device_info_android
-Android device information for debugging purposes.
+# MyDeviceInfo
+A simple class to get Android device information for debugging purposes.
+
+# Usage
+
+
