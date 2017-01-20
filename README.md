@@ -3,7 +3,7 @@ A simple class to get Android device information for debugging purposes and send
 
 # Usage
 * Import the two files MyDeviceInfo.java and MyStorageInfo.java into your project.
-* Get device information like this:
+* Get device information like this (called inside an Activity to pass the context):
 <pre>
 MyDeviceInfo info = new MyDeviceInfo(this);
 info.sendEmail(MyDeviceInfo.MODE_TXT_INLINE);
