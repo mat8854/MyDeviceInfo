@@ -3,10 +3,17 @@ A simple class to get Android device information for debugging purposes and send
 
 # Usage
 * Import the two files MyDeviceInfo.java and MyStorageInfo.java into your project.
-* Get device information like this (called inside an Activity to pass the context):
+* Get device information like this. Call inside an Activity to pass the context and package identifier:
 <pre>
-MyDeviceInfo info = new MyDeviceInfo(this);
-info.sendEmail(MyDeviceInfo.MODE_TXT_INLINE);
+try
+{
+	MyDeviceInfo info = new MyDeviceInfo(YourActivity.this, "com.example.yourapplication");
+	info.sendEmail(MyDeviceInfo.MODE_TXT_INLINE);
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
 </pre>
 
 # Notes
@@ -16,7 +23,7 @@ info.sendEmail(MyDeviceInfo.MODE_TXT_INLINE);
 # Known Issues
 * Some function used in class MyStorageInfo are deprecated (Jan. 2017).
 
-# Sample Output (Nexus 4, running Android 5.1.1)
+# Sampe Output (Nexus 4, running Android 5.1.1)
 <pre>
 Device information report:
 

@@ -15,15 +15,11 @@ public class MyDeviceInfo {
     public static final int MODE_TXT_INLINE         = 1;
     public static final int MODE_TXT_ATTACHMENT     = 2;
 
-    private static final String[] PACKAGES = new String[]{
-            "net.mat8854.prototype"
-    };
-
     private static final String[] SEND_TO_EMAIL = new String[]{
             "mail@domain.com"
     };
 
-    public MyDeviceInfo(Activity activity)
+    public MyDeviceInfo(Activity activity, String sPackage)
     {
         mActivtiy = activity;
 
@@ -32,10 +28,8 @@ public class MyDeviceInfo {
             PackageInfo info = mActivtiy.getApplication().getPackageManager().getPackageInfo(mActivtiy.getApplication().getPackageName(), 0);
             String mAppName = "\nDevice Info v" + info.versionName + "("+info.versionCode+")";
             addToReport(mAppName);
-            for(String pkg : PACKAGES)
-            {
-                addToReport(getPkgVersion(pkg));
-            }
+
+            addToReport(getPkgVersion(sPackage));
 
             addToReport("Locale: "+ mActivtiy.getResources().getConfiguration().locale.toString());
 
