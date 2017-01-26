@@ -23,7 +23,7 @@ catch(Exception e)
 # Known Issues
 * Some function used in class MyStorageInfo are deprecated (Jan. 2017).
 
-# Sampe Output (Nexus 4, running Android 5.1.1)
+# Sample Output (Nexus 4, running Android 5.1.1)
 <pre>
 Device information report:
 
