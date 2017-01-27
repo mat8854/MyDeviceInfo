@@ -4,7 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.util.DisplayMetrics;
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class MyDeviceInfo {
 
@@ -14,6 +19,8 @@ public class MyDeviceInfo {
 
     public static final int MODE_TXT_INLINE         = 1;
     public static final int MODE_TXT_ATTACHMENT     = 2;
+
+    public static final String sFile = "device_information.txt";
 
     private static final String[] SEND_TO_EMAIL = new String[]{
             "mail@domain.com"
@@ -105,11 +112,45 @@ public class MyDeviceInfo {
     public void sendEmail(int mode) {
 
         final Intent i = new Intent(android.content.Intent.ACTION_SEND);
+
+        if(mode == MODE_TXT_INLINE)
+        {
+            i.putExtra(android.content.Intent.EXTRA_TEXT, mReport);
+        }
+        else if(mode == MODE_TXT_ATTACHMENT)
+        {
+            // create file in cache
+            writeToFile(sFile, mReport);
+
+            // attach file
+            File file = new File(mActivtiy.getExternalCacheDir().toString() + "/" + sFile);
+            i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+        }
+        else
+        {
+            // additional modes
+        }
+
         i.setType("plain/text");
         i.putExtra(android.content.Intent.EXTRA_EMAIL, SEND_TO_EMAIL);
         i.putExtra(android.content.Intent.EXTRA_SUBJECT, mAppName);
-        i.putExtra(android.content.Intent.EXTRA_TEXT, mReport);
 
         mActivtiy.startActivity(Intent.createChooser(i, "Send mail ..."));
+    }
+
+    public void writeToFile(String fileName, String content) {
+
+        FileOutputStream outputStream;
+        File file;
+
+        try
+        {
+            file = new File(mActivtiy.getExternalCacheDir(), fileName);
+            outputStream = new FileOutputStream(file);
+            outputStream.write(content.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

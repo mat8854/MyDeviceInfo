@@ -16,6 +16,10 @@ catch(Exception e)
 }
 </pre>
 
+* sendEmail() takes a flag:
+	* MODE_TXT_INLINE inlines the device report.
+	* MODE_TXT_ATTACHMENT attaches the report as text file. Write permissions needed.
+
 # Notes
 * Build against SDK 24
 * Tested on API Level 22
