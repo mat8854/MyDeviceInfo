@@ -18,7 +18,7 @@ catch(Exception e)
 
 * sendEmail() takes a flag:
 	* MODE_TXT_INLINE inlines the device report.
-	* MODE_TXT_ATTACHMENT attaches the report as text file. Write permissions needed.
+	* MODE_TXT_ATTACHMENT attaches the report as text file. No special write permissions needed for getExternalCacheDir() call.
 
 # Notes
 * Build against SDK 24
