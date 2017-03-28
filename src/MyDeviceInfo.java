@@ -109,6 +109,11 @@ public class MyDeviceInfo {
         mReport = mReport + "\n" + text;
     }
 
+    public String getReport()
+    {
+        return  mReport;
+    }
+
     public void sendEmail(int mode) {
 
         final Intent i = new Intent(android.content.Intent.ACTION_SEND);
