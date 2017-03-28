@@ -20,6 +20,8 @@ catch(Exception e)
 	* MODE_TXT_INLINE inlines the device report.
 	* MODE_TXT_ATTACHMENT attaches the report as text file. No special write permissions needed for getExternalCacheDir() call.
 
+* use getReport() to get a string dump.	
+	
 # Notes
 * Build against SDK 24
 * Tested on API Level 22
