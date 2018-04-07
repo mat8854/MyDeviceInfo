@@ -28,6 +28,7 @@ catch(Exception e)
 
 # Known Issues
 * Some function used in class MyStorageInfo are deprecated (Jan. 2017).
+* Code has become obsolete. You can use [Google Crashlytics](https://firebase.google.com/docs/crashlytics/) to get much better device (and crash) information (March 2018).
 
 # Sample Output (Nexus 4, running Android 5.1.1)
 <pre>
